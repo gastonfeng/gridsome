@@ -79,7 +79,7 @@ module.exports = (context, options = {}) => {
   config.pathPrefix = normalizePathPrefix(isProd ? localConfig.pathPrefix : '')
   config._pathPrefix = normalizePathPrefix(localConfig.pathPrefix)
   config.publicPath = config.pathPrefix ? `${config.pathPrefix}/` : '/'
-  config.staticDir = resolve('static')
+  config.staticDir = resolve(localConfig.staticDir ||'static')
 
   // TODO: remove outDir before 1.0
   config.outputDir = resolve(localConfig.outputDir || localConfig.outDir || 'dist')
